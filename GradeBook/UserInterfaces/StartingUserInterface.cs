@@ -40,15 +40,18 @@ namespace GradeBook.UserInterfaces
                 return;
             }
             var name = parts[1];
-            BaseGradeBook gradeBook = new BaseGradeBook(name);
+            BaseGradeBook gradeBook;
             if (parts[2] == "standard")
             {
+                gradeBook = new StandardGradeBook(name);
                 gradeBook.Type = Enums.GradeBookType.Standard;
             } else if (parts[2] == "ranked")
             {
+                gradeBook = new RankedGradeBook(name);
                 gradeBook.Type = Enums.GradeBookType.Ranked;
             } else
             {
+                gradeBook = new BaseGradeBook(name);
                 Console.WriteLine($"{parts[2]}  is not a supported type of gradebook, please try again");
             }
             Console.WriteLine("Created gradebook {0}.", name);

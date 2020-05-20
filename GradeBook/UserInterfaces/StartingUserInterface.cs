@@ -51,8 +51,8 @@ namespace GradeBook.UserInterfaces
                 gradeBook.Type = Enums.GradeBookType.Ranked;
             } else
             {
-                gradeBook = new BaseGradeBook(name);
                 Console.WriteLine($"{parts[2]}  is not a supported type of gradebook, please try again");
+                return;
             }
             Console.WriteLine("Created gradebook {0}.", name);
             GradeBookUserInterface.CommandLoop(gradeBook);
